@@ -1,54 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe PatientsController, :type => :controller do
-
-  describe "GET index" do
-    it "returns http success" do
+  before do
+    10.times do |n|
+      @a_patient = Patient.create(patient_id: 00000000, name:"paciente", email:"paciente@patient.com", gender:"Masculino", age:30, height: 3.42, weight: 80 )
+    end
+  end
+  describe "GET action" do
+    it "#index" do
       get :index
       expect(response).to have_http_status(:success)
     end
-  end
-
-  describe "GET show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    it "#show" do
+      get :show, id: 10
+      expect(assigns(:patient)).to eq(@a_patient)
     end
-  end
-
-  describe "GET new" do
-    it "returns http success" do
+    it "#new" do
+      new_patient = Patient.new
       get :new
-      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:new)
     end
-  end
-
-  describe "GET create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET edit" do
-    it "returns http success" do
+    it "#edit" do
       get :edit
-      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:edit)
     end
   end
-
-  describe "GET update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
