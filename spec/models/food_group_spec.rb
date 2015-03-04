@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe FoodGroup, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    describe "validate Food Group" do
+
+     it "validate creation of the food group" do
+      g = FoodGroup.create(group: "Sementes")
+      expect(g.persisted?).to be true
+    end
+
+    it "validate creation of the food group (empty)" do
+      g = FoodGroup.create
+      expect(g.persisted?).to be false
+    end
+    
+  end
 end
