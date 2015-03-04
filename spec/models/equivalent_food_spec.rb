@@ -34,6 +34,13 @@ RSpec.describe EquivalentFood, :type => :model do
       expect(f.persisted?).to be false
     end
 
+    it "validate creation of the Equivalent Food (field empty quantity measure)" do
+      f = EquivalentFood.new(food)
+      f.quantity_measure = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
   end
 end
 
