@@ -13,8 +13,15 @@ RSpec.describe EquivalentFood, :type => :model do
       expect(g.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (empty)" do
+    it "validate creation of the Equivalent Food (all empty fields)" do
       f = EquivalentFood.create
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field empty food)" do
+      f = EquivalentFood.new(food)
+      f.food = nil
+      f.save
       expect(f.persisted?).to be false
     end
 
