@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304173302) do
+ActiveRecord::Schema.define(version: 20150304214517) do
 
   create_table "anamneses", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20150304173302) do
     t.time     "morning_meal_time"
     t.time     "noon_meal_time"
     t.time     "evening_meal_time"
+    t.integer  "patient_id"
+  end
+
+  add_index "anamneses", ["patient_id"], name: "index_anamneses_on_patient_id"
+
+  create_table "equivalent_foods", force: :cascade do |t|
+    t.string   "food"
+    t.integer  "quantity_measure"
+    t.string   "measure"
+    t.integer  "weight"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "group"
+  end
+
+  create_table "group_foods", force: :cascade do |t|
+    t.string   "group"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "patients", force: :cascade do |t|
