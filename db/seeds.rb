@@ -5,17 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-"Vegetal A"
-"Vegetal B"
-"Frutas"
-"Arroz"
-"Carnes"
-"Leite e Derivados"
-"Leite e derivados Desnatados"
-"Óleos e Gorduras"
-"Embutidos e Frios"
-"Feijões"
-"Pães"
-"Sementes e Fibras"
-"Açucares"
