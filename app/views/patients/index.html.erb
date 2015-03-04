@@ -1,2 +1,4 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<h2>Lista de pacientes</h2>
+<% @patients.each do |p| %>
+  <%= render partial:"shared/patient_display" ,locals: {patient: p} %>
+<% end %>
