@@ -27,6 +27,13 @@ RSpec.describe EquivalentFood, :type => :model do
       expect(f.persisted?).to be false
     end
 
+    it "validate creation of the Equivalent Food (field empty group)" do
+      f = EquivalentFood.new(food)
+      f.group = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
   end
 end
 
