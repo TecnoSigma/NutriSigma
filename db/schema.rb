@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303224810) do
+ActiveRecord::Schema.define(version: 20150304034625) do
 
   create_table "equivalent_foods", force: :cascade do |t|
     t.string   "food"
+    t.integer  "group"
     t.integer  "quantity_measure"
     t.string   "measure"
     t.integer  "weight"
@@ -39,6 +40,12 @@ ActiveRecord::Schema.define(version: 20150303224810) do
     t.integer  "age"
     t.float    "height"
     t.float    "weight"
+  end
+
+  create_table "food_groups", force: :cascade do |t|
+    t.string   "group"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

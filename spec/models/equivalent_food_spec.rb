@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe EquivalentFood, :type => :model do
-  describe "validate creation of the registers" do
-    
-    it "validate creation of the food group" do
-      g = GroupFood.create(group: "Sementes")
-      expect(g.persisted?).to be true
-    end
+  let(:food) {{food: "Cenoura cozida",
+               group: 2,
+               quantity_measure: 4,
+               measure: "colheres de sopa",
+               weight: 100}}
 
-    it "validate creation of the food group (empty)" do
-      g = GroupFood.create
-      expect(g.persisted?).to be false
+  describe "validate Equivalent Group" do
+  
+    it "validate creation of the Equivalent Food" do
+      f = EquivalentFood.create(food)
+      expect(f.persisted?).to be true
     end
 
     it "validate creation of the Equivalent Food (all empty fields)" do
@@ -61,5 +62,6 @@ RSpec.describe EquivalentFood, :type => :model do
     end
 
   end
-
 end
+
+
