@@ -36,4 +36,10 @@ RSpec.describe PatientsController, :type => :controller do
       expect(Patient.find(10).name).to eq("pacient3")
     end
   end
+  describe "DELETE action" do
+    it "#destroy" do
+      delete :destroy,id: Patient.last
+      expect(Patient.find(10)).to raise_error ActiveRecord::RecordNotFound
+    end
+  end
 end
