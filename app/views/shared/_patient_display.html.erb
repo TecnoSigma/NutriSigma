@@ -1,0 +1,10 @@
+<ul>
+  <li><strong>Nome: <%=link_to patient.name, patient %></strong>
+  <li>Id do paciente: <%=patient.patient_id %></li>
+  <li>Email: <%=patient.email %></li>
+  <li>Sexo: <%=patient.gender %></li>
+  <li>Idade: <%=patient.age %></li>
+  <li>Altura: <%=patient.height %>m</li>
+  <li>Peso: <%=patient.weight %>kg</li>
+  <li><%=link_to "Edit", edit_patient_path(patient) %></li>
+</ul>

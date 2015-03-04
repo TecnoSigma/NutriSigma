@@ -29,4 +29,16 @@ ActiveRecord::Schema.define(version: 20150303224810) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "patient_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "gender"
+    t.integer  "age"
+    t.float    "height"
+    t.float    "weight"
+  end
+
 end
