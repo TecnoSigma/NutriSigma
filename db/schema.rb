@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 20150304034625) do
 
   create_table "equivalent_foods", force: :cascade do |t|
     t.string   "food"
-    t.string   "group"
-    t.string   "integer"
+    t.integer  "group"
     t.integer  "quantity_measure"
     t.string   "measure"
     t.integer  "weight"
