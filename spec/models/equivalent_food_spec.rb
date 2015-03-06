@@ -19,42 +19,42 @@ RSpec.describe EquivalentFood, :type => :model do
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty food)" do
+    it "validate creation of the Equivalent Food (field food is empty)" do
       f = EquivalentFood.new(food)
       f.food = nil
       f.save
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty group)" do
+    it "validate creation of the Equivalent Food (field group is empty)" do
       f = EquivalentFood.new(food)
       f.group = nil
       f.save
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty quantity measure)" do
+    it "validate creation of the Equivalent Food (field quantity measure is empty)" do
       f = EquivalentFood.new(food)
       f.quantity_measure = nil
       f.save
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty measure)" do
+    it "validate creation of the Equivalent Food (field measureis is empty)" do
       f = EquivalentFood.new(food)
       f.measure = nil
       f.save
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty food)" do
+    it "validate creation of the Equivalent Food (field food is empty)" do
       f = EquivalentFood.new(food)
       f.food = nil
       f.save
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field empty weight)" do
+    it "validate creation of the Equivalent Food (field weight is empty)" do
       f = EquivalentFood.new(food)
       f.weight = nil
       f.save
