@@ -3,8 +3,24 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen'}])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#Food Groups (CHO: Carboidratos / PTN: Proteínas / LIP: Lipídeos / KCAL: Calorias x 1000)
+FoodGroup.create([{group:'Vegetais A'},{cho: 0},{ptn: 0},{lip: 0},{kcal: 0}])
+FoodGroup.create([{group:'Vegetais B'},{cho: 8},{ptn: 2},{lip: 1},{kcal: 49}])
+FoodGroup.create([{group:'Frutas'},{cho: 16 },{ptn: 0.5},{lip: 0.6},{kcal: 75.0}])
+FoodGroup.create([{group:'Arroz '},{cho:  27 },{ptn: 3.5},{lip: 3},{kcal: 149}])
+FoodGroup.create([{group:'Carnes'},{cho: 2},{ptn: 17 },{lip: 10 },{kcal: 164.0}])
+FoodGroup.create([{group:'Leites e Derivados'},{cho: 6},{ptn: 9},{lip: 7},{kcal: 123}])
+FoodGroup.create([{group:'Desnatado e soja'},{cho: 9.5},{ptn: 6},{lip: 1.5},{kcal: 75.5}])
+FoodGroup.create([{group:'Gorduras'},{cho: 0},{ptn: 0},{lip: 6},{kcal: 54}])
+FoodGroup.create([{group:'Embutidos '},{cho:  1},{ptn: 6.5},{lip: 2},{kcal: 48}])
+FoodGroup.create([{group:'Feijões '},{cho:  10 },{ptn: 3.5},{lip: 0.5},{kcal: 58.5}])
+FoodGroup.create([{group:'Pães'},{cho: 24 },{ptn: 3.5},{lip: 5},{kcal: 145}])
+FoodGroup.create([{group:'Fibras'},{cho: 4.5},{ptn: 2},{lip: 2.5},{kcal: 48.5}])
+FoodGroup.create([{group:'Açúcar'},{cho: 14 },{ptn: 1},{lip: 2},{kcal: 78}])
+
 
 #Equivalent Foods
 EquivalentFood.create([{food: 'Pepino'},{quantity_measure: 0},{measure: ''},{weight: 0},{group: 1}])
