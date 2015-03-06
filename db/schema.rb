@@ -16,15 +16,14 @@ ActiveRecord::Schema.define(version: 20150304034625) do
   create_table "equivalent_foods", force: :cascade do |t|
     t.string   "food"
     t.integer  "group"
-    t.integer  "quantity_measure"
+    t.float    "quantity_measure"
     t.string   "measure"
-    t.integer  "weight"
+    t.float    "weight"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "group"
   end
 
-  create_table "group_foods", force: :cascade do |t|
+  create_table "food_groups", force: :cascade do |t|
     t.string   "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,12 +39,6 @@ ActiveRecord::Schema.define(version: 20150304034625) do
     t.integer  "age"
     t.float    "height"
     t.float    "weight"
-  end
-
-  create_table "food_groups", force: :cascade do |t|
-    t.string   "group"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
