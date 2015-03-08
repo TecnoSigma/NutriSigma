@@ -9,7 +9,7 @@ RSpec.describe Patient, :type => :model do
     end
     it "Should NOT save an invalid patient" do
       @patient = Patient.create
-      expect(@patient.persisted).to eq(false)
+      expect(@patient.persisted?).to eq(false)
     end
   end
 end
