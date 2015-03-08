@@ -40,7 +40,7 @@ RSpec.describe EquivalentFood, :type => :model do
       expect(f.persisted?).to be false
     end
 
-    it "validate creation of the Equivalent Food (field measureis is empty)" do
+    it "validate creation of the Equivalent Food (field measure is empty)" do
       f = EquivalentFood.new(food)
       f.measure = nil
       f.save
