@@ -1,0 +1,25 @@
+<%= form_for @anamnesis do |a| %>
+  <div>
+    <%= a.label :paciente %>
+    <%= a.collection_select :patient_id, Patient.all.where(anamnesis: nil), :id, :name %>
+  </div>
+  <div>
+    <%= a.label :numero_do_prontuario %>
+    <%= a.text_field :medical_register_id %>
+  </div>
+  <div>
+    <%= a.label :horario_manha %>
+    <%= a.time_field :morning_meal_time %>
+  </div>
+  <div>
+    <%= a.label :horario_tarde %>
+    <%= a.time_field :noon_meal_time %>
+  </div>
+  <div>
+    <%= a.label :horario_noite %>
+    <%= a.time_field :evening_meal_time %>
+  </div>
+  <div>
+    <%= a.submit %>
+  </div>
+<% end %>

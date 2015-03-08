@@ -27,11 +27,11 @@ class AnamnesesController < ApplicationController
 
   def destroy
     @anamnesis = Anamnesis.find(params[:id]).destroy
-    redirect_to anamnesiss_path
+    redirect_to anamneses_path
   end
 private
   def anamnesis_params
-    params.require(:anamnesis).permit()
+    params.require(:anamnesis).permit(:medical_register_id, :morning_meal_time, :noon_meal_time, :evening_meal_time, :patient_id)
   end
   def save_anamnesis
     if @anamnesis.save

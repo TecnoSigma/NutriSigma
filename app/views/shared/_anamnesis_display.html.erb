@@ -1,0 +1,8 @@
+<ul>
+  <li><strong>Numero do Prontuario: <%=link_to anamnesis.medical_register_id, anamnesis %></strong></li>
+  <li>Nome do paciente: <%=link_to anamnesis.patient.name, anamnesis.patient %></li>
+  <li>Horario manha: <%=anamnesis.morning_meal_time.to_s(:time) %></li>
+  <li>Horario Tarde: <%=anamnesis.noon_meal_time.to_s(:time) %></li>
+  <li>Horario Noite: <%=anamnesis.evening_meal_time.to_s(:time) %></li>
+  <li><%=link_to "Editar", edit_anamnese_path(anamnesis) %></li>
+</ul>

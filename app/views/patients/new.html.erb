@@ -1,3 +1,51 @@
 <h2>Novo paciente</h2>
 
-<%= render "shared/patient_form" %>
+<%= form_tag(controller: "anamneses", action: "create", method: "post") do %>
+  <div>
+    <%= label_tag :id_do_paciente %>
+    <%= text_field_tag :patient_id %>
+  </div>
+  <div>
+    <%= label_tag :nome %>
+    <%= text_field_tag :name %>
+  </div>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div>
+    <%= label_tag :sexo %>
+    <%= select_tag :gender, options_for_select([["Masculino", "masculino"], ["Feminino", "feminino"]]) %>
+  </div>
+  <div>
+    <%= label_tag :idade %>
+    <%= text_field_tag :age %>
+  </div>
+  <div>
+    <%= label_tag :altura_em_metros %>
+    <%= text_field_tag :height %>
+  </div>
+  <div>
+    <%= label_tag :peso_em_kg %>
+    <%= text_field_tag :weight %>
+  </div>
+  <div>
+    <%= label_tag :numero_do_prontuario %>
+    <%= text_field_tag :medical_register_id %>
+  </div>
+  <div>
+    <%= label_tag :horario_manha %>
+    <%= time_field_tag :morning_meal_time %>
+  </div>
+  <div>
+    <%= label_tag :horario_tarde %>
+    <%= time_field_tag :noon_meal_time %>
+  </div>
+  <div>
+    <%= label_tag :horario_noite %>
+    <%= time_field_tag :evening_meal_time %>
+  </div>
+  <div>
+    <%= submit_tag("Submit") %>
+  </div>
+<% end %>
