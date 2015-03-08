@@ -2,9 +2,10 @@ class CreateEquivalentFoods < ActiveRecord::Migration
   def change
     create_table :equivalent_foods do |t|
       t.string :food
-      t.integer :quantity_measure
+      t.integer :group
+      t.float :quantity_measure
       t.string :measure
-      t.integer :weight
+      t.float :weight
 
       t.timestamps null: false
     end

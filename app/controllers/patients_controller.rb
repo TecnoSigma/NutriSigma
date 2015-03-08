@@ -43,7 +43,7 @@ private
     if @patient.save
       save_anamnesis
     else
-      render "show"
+      render "new"
     end
   end
   def save_anamnesis

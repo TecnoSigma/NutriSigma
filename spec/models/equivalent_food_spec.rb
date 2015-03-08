@@ -1,18 +1,67 @@
 require 'rails_helper'
 
 RSpec.describe EquivalentFood, :type => :model do
-  describe "validate creation of the registers" do
-    
-    it "validate creation of the food group" do
-      g = GroupFood.create(group: "Sementes")
-      expect(g.persisted?).to be true
+  let(:food) {{food: "Cenoura cozida",
+               group: 2,
+               quantity_measure: 4,
+               measure: "colheres de sopa",
+               weight: 100}}
+
+  describe "validate Equivalent Group" do
+  
+    it "validate creation of the Equivalent Food" do
+      f = EquivalentFood.create(food)
+      expect(f.persisted?).to be true
     end
 
-    it "validate creation of the food group (empty)" do
-      g = GroupFood.create
-      expect(g.persisted?).to be false
+    it "validate creation of the Equivalent Food (all empty fields)" do
+      f = EquivalentFood.create
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field food is empty)" do
+      f = EquivalentFood.new(food)
+      f.food = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field group is empty)" do
+      f = EquivalentFood.new(food)
+      f.group = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field quantity measure is empty)" do
+      f = EquivalentFood.new(food)
+      f.quantity_measure = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field measureis is empty)" do
+      f = EquivalentFood.new(food)
+      f.measure = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field food is empty)" do
+      f = EquivalentFood.new(food)
+      f.food = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
+    it "validate creation of the Equivalent Food (field weight is empty)" do
+      f = EquivalentFood.new(food)
+      f.weight = nil
+      f.save
+      expect(f.persisted?).to be false
     end
 
   end
-
 end
+
+
