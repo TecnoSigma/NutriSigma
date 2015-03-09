@@ -1,0 +1,2 @@
+class NutritionistProfilesController < ApplicationController
+end
