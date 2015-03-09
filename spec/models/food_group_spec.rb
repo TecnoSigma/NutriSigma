@@ -33,5 +33,12 @@ RSpec.describe FoodGroup, :type => :model do
       expect(f.persisted?).to be false
     end
 
+    it "validate creation of the Food Group (field proteins is empty)" do
+      f = FoodGroup.new(food_group)
+      f.proteins = nil
+      f.save
+      expect(f.persisted?).to be false
+    end
+
   end
 end
