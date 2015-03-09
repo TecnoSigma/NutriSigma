@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 20150308231722) do
 
   create_table "food_groups", force: :cascade do |t|
     t.string   "group"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "carbohydrate"
+    t.float    "proteins"
+    t.float    "lipids"
+    t.float    "kilocalories"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "nutritionists", force: :cascade do |t|
