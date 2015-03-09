@@ -70,6 +70,12 @@ RSpec.describe NutritionistProfile, :type => :model do
         expect(n.valid?).to be true
       end
 
+      it "validate creation of the Nutritionist Profile (field license_type is valid using the option 'Provisória')" do
+        n = NutritionistProfile.new(profile)
+        n.license_type = "Provisória"
+        expect(n.valid?).to be true
+      end
+
     end
 
   end
