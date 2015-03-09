@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309024537) do
+ActiveRecord::Schema.define(version: 20150309180450) do
+
+  create_table "anamneses", force: :cascade do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "medical_register_id"
+    t.time     "morning_meal_time"
+    t.time     "noon_meal_time"
+    t.time     "evening_meal_time"
+    t.integer  "patient_id"
+  end
+
+  add_index "anamneses", ["patient_id"], name: "index_anamneses_on_patient_id"
 
   create_table "anamneses", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -33,7 +45,10 @@ ActiveRecord::Schema.define(version: 20150309024537) do
     t.float    "weight"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "food_group_id"
   end
+
+  add_index "equivalent_foods", ["food_group_id"], name: "index_equivalent_foods_on_food_group_id"
 
   create_table "food_groups", force: :cascade do |t|
     t.string   "group"
