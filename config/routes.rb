@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :nutritionists
   resources :patients
   resources :anamneses
 

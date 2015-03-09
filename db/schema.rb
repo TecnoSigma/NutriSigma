@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304214517) do
+ActiveRecord::Schema.define(version: 20150309024537) do
 
   create_table "anamneses", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -37,9 +37,42 @@ ActiveRecord::Schema.define(version: 20150304214517) do
 
   create_table "food_groups", force: :cascade do |t|
     t.string   "group"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "carbohydrate"
+    t.float    "proteins"
+    t.float    "lipids"
+    t.float    "kilocalories"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  create_table "nutritionist_profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "issuing_institution"
+    t.string   "crn_number"
+    t.date     "crn_expiration"
+    t.string   "license_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "nutritionists", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nutritionists", ["email"], name: "index_nutritionists_on_email", unique: true
+  add_index "nutritionists", ["reset_password_token"], name: "index_nutritionists_on_reset_password_token", unique: true
 
   create_table "patients", force: :cascade do |t|
     t.datetime "created_at", null: false
