@@ -15,6 +15,11 @@ RSpec.describe NutritionistProfile, :type => :model do
       expect(n.persisted?).to be true
     end
 
+    it "validate creation nutritionist profile (empty)" do
+      n = NutritionistProfile.create
+      expect(n.persisted?).to be false
+    end
+
   end
 
 end
