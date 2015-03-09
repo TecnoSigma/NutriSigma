@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150309024537) do
     t.string   "issuing_institution"
     t.string   "crn_number"
     t.datetime "expiration_crn"
+    t.string   "license_type"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
