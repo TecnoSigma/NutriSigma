@@ -115,6 +115,12 @@ RSpec.describe NutritionistProfile, :type => :model do
         n.issuing_institution = "CRN-4"
         expect(n.valid?).to be true
       end
+      
+      it "validate creation of the Nutritionist Profile (field issuing_institution is valid using the option 'CRN-5')" do
+        n = NutritionistProfile.new(profile)
+        n.issuing_institution = "CRN-5"
+        expect(n.valid?).to be true
+      end
 
     end
 
