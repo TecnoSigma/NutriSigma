@@ -84,6 +84,16 @@ RSpec.describe NutritionistProfile, :type => :model do
 
     end
 
+    describe "validate issuing_institution" do
+
+      it "validate creation of the Nutritionist Profile (field issuing_institution is invalid using the different options of: CRN-1, CRN-2, CRN-3, CRN-4, CRN-5, CRN-6, CRN-7, CRN-8, CRN-9 e CRN-10)" do
+        n = NutritionistProfile.new(profile)
+        n.issuing_institution = "CRN-xxx"
+        expect(n.valid?).to be false
+      end
+
+    end
+
   end
 
 end
