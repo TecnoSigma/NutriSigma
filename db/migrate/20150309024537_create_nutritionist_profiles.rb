@@ -5,7 +5,7 @@ class CreateNutritionistProfiles < ActiveRecord::Migration
       t.string :email
       t.string :issuing_institution
       t.string :crn_number
-      t.date_time :expiration_crn
+      t.datetime :expiration_crn
 
       t.timestamps null: false
     end
