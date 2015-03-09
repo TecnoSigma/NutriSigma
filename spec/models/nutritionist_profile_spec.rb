@@ -5,7 +5,7 @@ RSpec.describe NutritionistProfile, :type => :model do
                   email: "maria.silva@nutri.com.br",
                   issuing_institution: "CRN-3",
                   crn_number: "0244",
-                  expiration_crn: "2018-11-05",
+                  crn_expiration: "2018-11-05",
                   license_type: "Definitiva"}}
 
   describe "Validate Nutritionist Profile" do
@@ -35,6 +35,18 @@ RSpec.describe NutritionistProfile, :type => :model do
     it "validate creation of the Nutritionist Profile (field issuing_institution is empty)" do
       n = NutritionistProfile.new(profile)
       n.issuing_institution = nil
+      expect(n.persisted?).to be false
+    end
+
+    it "validate creation of the Nutritionist Profile (field issuing_institution is empty)" do
+      n = NutritionistProfile.new(profile)
+      n.issuing_institution = nil
+      expect(n.persisted?).to be false
+    end
+
+    it "validate creation of the Nutritionist Profile (field crn_number is empty)" do
+      n = NutritionistProfile.new(profile)
+      n.crn_number = nil
       expect(n.persisted?).to be false
     end
 
