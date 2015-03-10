@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309180450) do
+ActiveRecord::Schema.define(version: 20150310175831) do
 
   create_table "anamneses", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -25,21 +25,27 @@ ActiveRecord::Schema.define(version: 20150309180450) do
 
   add_index "anamneses", ["patient_id"], name: "index_anamneses_on_patient_id"
 
-  create_table "anamneses", force: :cascade do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "medical_register_id"
-    t.time     "morning_meal_time"
-    t.time     "noon_meal_time"
-    t.time     "evening_meal_time"
-    t.integer  "patient_id"
+  create_table "anamnesis_food_items", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.float    "quantity"
+    t.string   "meal_time"
+    t.integer  "anamnesis_id"
+    t.integer  "equivalent_food_id"
   end
 
-  add_index "anamneses", ["patient_id"], name: "index_anamneses_on_patient_id"
+  add_index "anamnesis_food_items", ["anamnesis_id"], name: "index_anamnesis_food_items_on_anamnesis_id"
+  add_index "anamnesis_food_items", ["equivalent_food_id"], name: "index_anamnesis_food_items_on_equivalent_food_id"
+
+  create_table "anamnesis_food_lists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "quantity"
+    t.string   "meal_time"
+  end
 
   create_table "equivalent_foods", force: :cascade do |t|
     t.string   "food"
-    t.integer  "group"
     t.float    "quantity_measure"
     t.string   "measure"
     t.float    "weight"
