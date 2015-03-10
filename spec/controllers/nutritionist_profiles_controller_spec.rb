@@ -8,6 +8,17 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
                   crn_expiration: "2018-11-05",
                   license_type: "Definitiva"}}
 
+  before do
+    5.times do
+      @nutritionist_profile = NutritionistProfile.create(name: "Nutricionista-Padrão",
+                                                         email: "padrao@nutri.com.br",
+                                                         issuing_institution: "CRN-10",
+                                                         crn_number: "0999",
+                                                         crn_expiration: "2018-11-05",
+                                                         license_type: "Definitiva")
+    end
+  end
+
   describe "GET action" do
 
     it "validate #index" do
