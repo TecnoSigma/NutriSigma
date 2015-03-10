@@ -26,6 +26,11 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
       expect(response).to have_http_status(:success)
     end
 
+    it "validate #edit" do
+      get :edit, id:3
+      expect(response).to render_template(:edit)
+    end
+
   end
 
 end
