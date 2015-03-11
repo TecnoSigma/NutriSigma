@@ -1,55 +1,54 @@
 class NutritionistProfilesController < ApplicationController
-  
+  before_action :set_nutri_profile, only: [:edit, :update, :show, :destroy]
   def index
-
   end
 
   def edit
-    @nutriProfile = NutritionistProfile.find(params[:id])
   end
 
   def update
-    @nutriProfile = NutritionistProfile.find(params[:id])
     update_nutriprofile
   end
 
   def show
-    @nutriProfile = NutritionistProfile.find(params[:id])
   end
 
   def create
-    @nutriProfile = NutritionistProfile.new(nutriprofile_params)
+    @nutri_profile = NutritionistProfile.new(nutriprofile_params)
     save_nutriprofile
   end
 
   def new
-    @nutriProfile = NutritionistProfile.new
+    @nutri_profile = NutritionistProfile.new
   end
 
   def destroy
-    @nutriProfile = NutritionistProfile.find(params[:id]).destroy
+    @nutri_profile.destroy
     redirect_to nutritionist_profiles_path
   end
 
   private
 
+  def set_nutri_profile
+    @nutri_profile = NutritionistProfile.find(params[:id])
+  end
+
   def nutriprofile_params
     params.require(:nutri_profile).permit(:name, :email, :issuing_institution, :crn_number, :crn_expiration, :license_type)
   end
-  
+
   def save_nutriprofile
-    if @nutriProfile.save
-      redirect_to @nutriProfile
+    if @nutri_profile.save
+      redirect_to @nutri_profile
     else
       render "new"
     end
   end
   def update_nutriprofile
-    if @nutriProfile.update(nutriprofile_params)
-      redirect_to @nutriProfile
+    if @nutri_profile.update(nutriprofile_params)
+      redirect_to @nutri_profile
     else
       render "edit"
     end
   end
-
 end
