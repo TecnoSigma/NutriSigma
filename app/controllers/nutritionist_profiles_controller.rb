@@ -8,6 +8,11 @@ class NutritionistProfilesController < ApplicationController
     @nutriProfile = NutritionistProfile.find(params[:id])
   end
 
+  def update
+    @nutriProfile = NutritionistProfile.find(params[:id])
+    update_nutriprofile
+  end
+
   def show
     @nutriProfile = NutritionistProfile.find(params[:id])
   end
