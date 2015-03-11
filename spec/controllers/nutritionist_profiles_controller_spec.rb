@@ -27,8 +27,13 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
     end
 
     it "validate #edit" do
-      get :edit, id:3
+      get :edit, id: @nutritionist_profile.id
       expect(response).to render_template(:edit)
+    end
+
+    it "validate #show" do
+      get :show, id: @nutritionist_profile.id
+      expect(assigns(:nutriProfile)).to eq(@nutritionist_profile)
     end
 
   end
