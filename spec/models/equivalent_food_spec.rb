@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe EquivalentFood, :type => :model do
   let(:food) {{food: "Cenoura cozida",
-               group: 2,
+               food_group_id: 2,
                quantity_measure: 4,
                measure: "colheres de sopa",
                weight: 100}}
@@ -22,13 +22,6 @@ RSpec.describe EquivalentFood, :type => :model do
     it "validate creation of the Equivalent Food (field food is empty)" do
       f = EquivalentFood.new(food)
       f.food = nil
-      f.save
-      expect(f.persisted?).to be false
-    end
-
-    it "validate creation of the Equivalent Food (field group is empty)" do
-      f = EquivalentFood.new(food)
-      f.group = nil
       f.save
       expect(f.persisted?).to be false
     end
