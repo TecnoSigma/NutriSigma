@@ -36,6 +36,12 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
       expect(assigns(:nutriProfile)).to eq(@nutritionist_profile)
     end
 
+    it "validate #new" do
+      nutritionist_profile = NutritionistProfile.new
+      get :new
+      expect(response).to render_template(:new)
+    end
+
   end
 
 end
