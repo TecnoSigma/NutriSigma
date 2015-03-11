@@ -44,4 +44,14 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
 
   end
 
+  describe "DELETE action" do
+
+    it "validate #destroy" do
+      last_id = NutritionistProfile.last.id
+      delete :destroy, id: last_id
+      expect{NutritionistProfile.find(last_id)}.to raise_exception(ActiveRecord::RecordNotFound)
+    end
+
+  end
+
 end
