@@ -25,4 +25,9 @@ class NutritionistProfilesController < ApplicationController
     @nutriprofile = NutritionistProfile.new
   end
 
+  def destroy
+    @nutriprofile = NutritionistProfile.find(params[:id]).destroy
+    redirect_to nutritionist_profiles_path
+  end
+
 end
