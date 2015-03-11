@@ -16,18 +16,35 @@ class NutritionistProfilesController < ApplicationController
     @nutriProfile = NutritionistProfile.new(nutriprofile_params)
     save_nutriprofile
   end
-  
-  def nutriprofile_params
-    params.require(:nutriprofile).permit(:name, :email, :issuing_institution, :crn_number, :crn_expiration, :license_type)
-  end
 
   def new
-    @nutriprofile = NutritionistProfile.new
+    @nutriProfile = NutritionistProfile.new
   end
 
   def destroy
-    @nutriprofile = NutritionistProfile.find(params[:id]).destroy
+    @nutriProfile = NutritionistProfile.find(params[:id]).destroy
     redirect_to nutritionist_profiles_path
+  end
+
+  private
+
+  def nutriprofile_params
+    params.require(:nutri_profile).permit(:name, :email, :issuing_institution, :crn_number, :crn_expiration, :license_type)
+  end
+  
+  def save_nutriprofile
+    if @nutriProfile.save
+      redirect_to @nutriProfile
+    else
+      render "new"
+    end
+  end
+  def update_nutriprofile
+    if @nutriProfile.update(nutriprofile_params)
+      redirect_to @nutriProfile
+    else
+      render "edit"
+    end
   end
 
 end

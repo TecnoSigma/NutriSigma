@@ -54,4 +54,13 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
 
   end
 
+  describe "POST action" do
+
+    it "validate #create" do
+      post :create, nutriProfile: profile
+      expect(NutritionistProfile.count).to eq(1)
+    end
+
+  end
+
 end
