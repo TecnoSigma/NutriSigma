@@ -5,6 +5,14 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+
+    
+    #CÁLCULOS
+    #========
+
+    #IMC
+    @imc = @patient.calc_imc
+
   end
 
   def new
