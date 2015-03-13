@@ -20,7 +20,14 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
   end
 
   describe "GET action" do
-
+    before do
+      @nutritionist_profile = NutritionistProfile.create(name: "Nutricionista-Padrão",
+                                                         email: "padrao@nutri.com.br",
+                                                         issuing_institution: "CRN-10",
+                                                         crn_number: "0999",
+                                                         crn_expiration: "2018-11-05",
+                                                         license_type: "Definitiva")
+      end
     it "validate #index" do
       get :index
       expect(response).to have_http_status(:success)
@@ -55,10 +62,13 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
   end
 
   describe "POST action" do
-
     it "validate #create" do
-      post :create, nutriProfile: profile
-      expect(NutritionistProfile.count).to eq(1)
+      post :create, nutri_profile: profile
+      expect(NutritionistProfile.last.name).to eq("Maria da Silva")
+    end
+    it "#update" do
+      post :update, id:NutritionistProfile.last.id ,nutri_profile:{name:"Jose da Silva"}
+      expect(NutritionistProfile.last.name).to eq("Jose da Silva")
     end
 
   end
