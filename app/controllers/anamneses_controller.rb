@@ -1,4 +1,6 @@
 class AnamnesesController < ApplicationController
+  before_action :check_anamnesis, only: [:new, :create]
+  before_action :load_patient, only: [:edit ,:update]
   def index
     @anamneses = Anamnesis.all
   end
@@ -35,16 +37,25 @@ private
   end
   def save_anamnesis
     if @anamnesis.save
-      redirect_to @anamnesis
+      redirect_to @anamnesis.patient
     else
       render "new"
     end
   end
   def update_anamnesis
     if @anamnesis.update(anamnesis_params)
-      redirect_to @anamnesis
+      redirect_to @anamnesis.patient
     else
       render "edit"
     end
+  end
+  def check_anamnesis
+    load_patient
+    unless @patient.anamnesis.nil?
+      redirect_to edit_patient_anamnese_path(@patient.anamnesis.id,@patient.id)
+    end
+  end
+  def load_patient
+    @patient = Patient.find(params[:patient_id])
   end
 end

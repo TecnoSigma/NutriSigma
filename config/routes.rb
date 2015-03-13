@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :nutritionists
-  resources :patients
-  resources :anamneses
+  resources :patients do
+    resources :anamneses, except:[:show]
+  end
   resources :nutritionist_profiles
 
   # The priority is based upon order of creation: first created -> highest priority.
