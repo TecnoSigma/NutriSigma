@@ -13,6 +13,15 @@ class PatientsController < ApplicationController
     #IMC
     @imc = @patient.calc_imc
 
+    #Type of the IMC
+    @type_imc = @patient.type_imc
+
+    #Ideal Weight
+    @iw = @patient.calc_ideal_weight
+
+    #Amount to lose weight
+    @amount_lose = @patient.calc_amount_lose
+
   end
 
   def new
