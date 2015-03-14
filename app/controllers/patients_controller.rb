@@ -22,6 +22,9 @@ class PatientsController < ApplicationController
     #Amount to lose weight
     @amount_lose = @patient.calc_amount_lose
 
+    #Daily calories
+    @d_calories = @patient.calc_calories(1.22)
+
   end
 
   def new

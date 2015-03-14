@@ -90,5 +90,18 @@ RSpec.describe Patient, :type => :model do
 
     end
 
+    it "Validate daily calories" do
+      p = Patient.new(valid_patient)
+      tax = 1.22
+
+      #Calorias diárias (Homens)
+      cal_H = (tax * (66 + (13.7 * p.weight) + (5 * p.height * 100) - (6.8 * p.age))).round(2)
+      expect(cal_H).to eq (2266.76)
+
+      #Calorias diárias (Mulheres)
+      cal_M = (tax * (655 + (9.6 * p.weight) + (1.8 * p.height * 100) - (4.7 * p.age))).round(2)
+      expect(cal_M).to eq (1959.32)
+    end
+
   end
 end
