@@ -8,3 +8,10 @@
   <li>Peso: <%=patient.weight %>kg</li>
   <li><%=link_to "Edit", edit_patient_path(patient) %></li>
 </ul>
+
+<br>
+IMC: <%= @imc %><br>
+Peso Ideal: <%= @iw %> kg - <%= @type_imc %><br>
+Quantidade a perder: <%= @amount_lose %> kg<br>
+Caloria Diárias: <%= @d_calories %>  Kcal<br>
+<br>
