@@ -50,10 +50,10 @@ RSpec.describe Patient, :type => :model do
     # expect(p.type_imc).to be("Obesidade III (Mórbida)")
     #end
 
-    TYPE_IMC = {"Obesidade III (Mórbida)" => {weight: 250, height: 1.8}}
-    def weight_by_type_imc(type_imc)
-     TYPE_IMC[type_imc]
-    end
+    #TYPE_IMC = {"Obesidade III (Mórbida)" => {weight: 250, height: 1.8}}
+    #def weight_by_type_imc(type_imc)
+    # TYPE_IMC[type_imc]
+    #end
 
       it "Obesity II (severe)" do
         p = Patient.new(valid_patient)
