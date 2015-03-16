@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309180450) do
+ActiveRecord::Schema.define(version: 20150316015036) do
 
   create_table "equivalent_foods", force: :cascade do |t|
     t.string   "food"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20150309180450) do
     t.float    "kilocalories"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "nutritional_informations", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "id_patient"
+    t.string   "name"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "breakfast"
+    t.string   "lunch"
+    t.string   "dinner"
+    t.string   "nutritionist"
+    t.string   "crn_number"
+    t.string   "issuing_institution"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "nutritionist_profiles", force: :cascade do |t|
