@@ -42,12 +42,18 @@ RSpec.describe Patient, :type => :model do
 
     describe "Type of the IMC" do
 
-      it "Obesity III (morbid)" do
-        p = Patient.new(valid_patient)
-        p.weight = 250
-        imc = (p.weight / (p.height ** 2)).round(1)
-        expect(imc).to be > (45)
-      end
+    #it "has Obesity III (morbid)" do
+    # p = Patient.new(valid_patient)
+    # p.weight = weight_by_type_imc("Obesidade III (Mórbida)")[:weight] 
+    # # veja q estou chamando imc e não calc_imc, o imc é o nome adequado para esse metodo
+    # expect(p.imc).to be > 45
+    # expect(p.type_imc).to be("Obesidade III (Mórbida)")
+    #end
+
+    TYPE_IMC = {"Obesidade III (Mórbida)" => {weight: 250, height: 1.8}}
+    def weight_by_type_imc(type_imc)
+     TYPE_IMC[type_imc]
+    end
 
       it "Obesity II (severe)" do
         p = Patient.new(valid_patient)
