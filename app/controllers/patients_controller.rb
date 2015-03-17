@@ -11,7 +11,7 @@ class PatientsController < ApplicationController
     #========
 
     #IMC
-    @imc = @patient.calc_imc
+    @imc = @patient.imc
 
     #Type of the IMC
     @type_imc = @patient.type_imc
