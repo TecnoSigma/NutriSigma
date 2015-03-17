@@ -1,6 +1,15 @@
 class Patient < ActiveRecord::Base
 	validates :patient_id, :name, :email, :gender, :age, :height, :weight, presence: true
 
+  MASCULINO = Gender.from_letter("M")
+  FEMININO = Gender.from_letter("F")
+
+  def gender
+    unless attributes["gender"].nil?
+      Gender.from_letter(attributes["gender"][0])
+    end
+  end
+
   def calc_imc
     (weight / (height ** 2)).round(2)
   end 
@@ -22,9 +31,9 @@ class Patient < ActiveRecord::Base
   end
 
   def calc_ideal_weight
-    if gender == "feminino"
+    if gender == FEMININO
       21 * (height ** 2).round(2)
-    elsif gender == "masculino"
+    elsif gender == MASCULINO
       22 * (height ** 2).round(2)
     end
   end

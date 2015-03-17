@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Patient, :type => :model do
-  let(:valid_patient) {{patient_id: 00000000, name:"paciente", email:"paciente@patient.com", gender:"Masculino", age:30, height: 1.8, weight: 80}}
+  let(:valid_patient) {{patient_id: 00000000, name:"paciente", 
+                        email:"paciente@patient.com", gender:"masculino", age:30, height: 1.8, weight: 80}}
   describe "Validates presence" do
     it "Should save a valid patient" do
       @patient = Patient.new(valid_patient)
@@ -14,11 +15,15 @@ RSpec.describe Patient, :type => :model do
   end
 
   describe "Validates formulas" do
+    subject{ Patient.new(valid_patient) }
+    it "Ideal Weight (gender: Famale)" do
+      p = Patient.new(valid_patient.merge(gender:"feminino"))
+      expect(p.calc_ideal_weight).to eq (68.04)
+    end
 
     it "Ideal Weight (gender: Famale)" do
-      p = Patient.new(valid_patient)
-      iw = 21 * (p.height ** 2).round(2)
-      expect(iw).to eq (68.04)
+      subject.gender="feminino"
+      expect(subject.calc_ideal_weight).to eq (68.04)
     end
 
     it "Ideal Weight (gender: Male)" do
