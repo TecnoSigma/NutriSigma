@@ -21,7 +21,7 @@ class NutritionalInformation
 
   #PTN (Protein)
   def self.ptn(weight)
-    0.8 * weight      
+    (0.8 * weight).round(2)
   end
 
   #% PTN (Percent of the Protein)
