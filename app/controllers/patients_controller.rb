@@ -5,6 +5,8 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @anamnesis = @patient.anamnesis
+    food_items_display
 
     
     #CÁLCULOS
@@ -24,7 +26,6 @@ class PatientsController < ApplicationController
 
     #Daily calories
     @d_calories = @patient.calc_calories(1.22)
-
   end
 
   def new
@@ -66,5 +67,19 @@ private
     else
       render "edit"
     end
+  end
+  def food_items_display
+    @morning_food_carbohydrates = @anamnesis.total_carbohydrates('manha')
+    @morning_food_proteins = @anamnesis.total_proteins('manha')
+    @morning_food_lipids = @anamnesis.total_lipids('manha')
+    @morning_food_kilocalories = @anamnesis.total_kilocalories('manha')
+    @noon_food_carbohydrates = @anamnesis.total_carbohydrates('tarde')
+    @noon_food_proteins = @anamnesis.total_proteins('tarde')
+    @noon_food_lipids = @anamnesis.total_lipids('tarde')
+    @noon_food_kilocalories = @anamnesis.total_kilocalories('tarde')
+    @evening_food_carbohydrates = @anamnesis.total_carbohydrates('noite')
+    @evening_food_proteins = @anamnesis.total_proteins('noite')
+    @evening_food_lipids = @anamnesis.total_lipids('noite')
+    @evening_food_kilocalories = @anamnesis.total_kilocalories('noite')
   end
 end

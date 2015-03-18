@@ -12,13 +12,13 @@ RSpec.describe Patient, :type => :model do
   describe "Validates presence" do
 
     it "Should save a valid patient" do
-      @patient = Patient.new(valid_patient)
-      expect(@patient.valid?).to eq(true)
+      @patient = Patient.create(valid_patient)
+      expect(@patient.persisted?).to eq(true)
     end
 
     it "Should NOT save an invalid patient" do
-      @patient = Patient.new
-      expect(@patient.valid?).to eq(false)
+      @patient = Patient.create
+      expect(@patient.persisted?).to eq(false)
     end
 
   end
