@@ -34,5 +34,9 @@ class NutritionalInformation
     (tee * 0.15).round(2)
   end
 
+  #CHO (carbohydrate)
+  def self.cho(tee)
+    (tee * 0.60).round(2)
+  end
 
 end
