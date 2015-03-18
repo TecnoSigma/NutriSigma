@@ -37,5 +37,9 @@ RSpec.describe NutritionalInformation, :type => :model do
         expect(NutritionalInformation.cho(@tee)).to eq (1039.99)
       end
 
+      it "validate LIP (lipids)" do
+        expect(NutritionalInformation.lip(@tee)).to eq (433.33)
+      end
+
     end
 end
