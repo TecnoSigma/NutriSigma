@@ -1,6 +1,6 @@
 class Patient < ActiveRecord::Base
 	validates :patient_id, :name, :email, :gender, :age, :height, :weight, presence: true
-
+  belongs_to :nutritionist
   MASCULINO = Gender.from_letter("M")
   FEMININO = Gender.from_letter("F")
 
