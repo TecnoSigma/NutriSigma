@@ -6,6 +6,14 @@
     <%= a.text_field :medical_register_id %>
   </div>
   <div>
+    <%= a.label :physical_activity,"Atividade Fisica" %>
+    <%= a.select :physical_activity,options_for_select([["Sedentário (pouco ou nenhum exercício)",Anamnesis::SEDENTARY], 
+    ["Levemente ativo (exercício leve 1 a 3 dias por semana)",Anamnesis::LOWLY_ACTIVE], 
+    ["Moderadamente ativo (exercício moderado, faz esportes 3 a 5 dias por semana)",Anamnesis::ACTIVE], 
+    ["Altamente ativo (exercício pesado de 5 a 6 dias por semana)",Anamnesis::HIGHLY_ACTIVE], 
+    ["Extremamente ativo (exercício pesado diariamente e até 2 vezes por dia)",Anamnesis::EXTREMELY_ACTIVE]]) %>
+  </div>
+  <div>
     <%= a.label :horario_manha %>
     <%= a.time_field :morning_meal_time %>
   </div>

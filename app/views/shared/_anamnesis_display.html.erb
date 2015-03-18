@@ -1,5 +1,6 @@
 <ul>
   <li><strong>Numero do Prontuario: <%= anamnesis.medical_register_id %></strong></li>
+  <li>Atividade Fisica:<%= anamnesis.physical_activity %></li>
   <li>Horario manha: <%=anamnesis.morning_meal_time.to_s(:time) %></li>
   <% anamnesis.anamnesis_food_items.where("meal_time == ?",'manha').each do |food_item|%>
     <li><%= food_item.quantity %> <%= food_item.equivalent_food.food %></li>

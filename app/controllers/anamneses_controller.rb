@@ -37,6 +37,7 @@ private
   include AnamnesisFoodItemsMethods
   def anamnesis_params
     params.require(:anamnesis).permit(:medical_register_id, 
+      :physical_activity, 
       :morning_meal_time, 
       :noon_meal_time, 
       :evening_meal_time, 
