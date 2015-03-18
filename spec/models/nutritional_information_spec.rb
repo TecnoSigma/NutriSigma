@@ -29,5 +29,9 @@ RSpec.describe NutritionalInformation, :type => :model do
         expect(NutritionalInformation.percent_ptn(@kcal,@tee)).to eq (59.19)
       end
 
+      it "validate RES. PTN (Residual of the Protein)" do
+        expect(NutritionalInformation.res_ptn(@tee)).to eq (260.0)
+      end
+
     end
 end
