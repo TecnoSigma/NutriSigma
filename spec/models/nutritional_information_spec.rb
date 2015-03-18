@@ -33,5 +33,9 @@ RSpec.describe NutritionalInformation, :type => :model do
         expect(NutritionalInformation.res_ptn(@tee)).to eq (260.0)
       end
 
+      it "validate CHO (carbohydrate)" do
+        expect(NutritionalInformation.cho(@tee)).to eq (1039.99)
+      end
+
     end
 end
