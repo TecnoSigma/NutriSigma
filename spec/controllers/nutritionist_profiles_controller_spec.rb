@@ -40,7 +40,7 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
 
     it "validate #show" do
       get :show, id: @nutritionist_profile.id
-      expect(assigns(:nutriProfile)).to eq(@nutritionist_profile)
+      expect(assigns(:nutri_profile)).to eq(@nutritionist_profile)
     end
 
     it "validate #new" do

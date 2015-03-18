@@ -7,6 +7,25 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @anamnesis = @patient.anamnesis
     food_items_display
+
+    
+    #CÁLCULOS
+    #========
+
+    #IMC
+    @imc = @patient.imc
+
+    #Type of the IMC
+    @type_imc = @patient.type_imc
+
+    #Ideal Weight
+    @iw = @patient.calc_ideal_weight
+
+    #Amount to lose weight
+    @amount_lose = @patient.calc_amount_lose
+
+    #Daily calories
+    @d_calories = @patient.calc_calories(1.22)
   end
 
   def new

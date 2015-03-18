@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 20150318164937) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "nutritional_informations", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "id_patient"
+    t.string   "name"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "breakfast"
+    t.string   "lunch"
+    t.string   "dinner"
+    t.string   "nutritionist"
+    t.string   "crn_number"
+    t.string   "issuing_institution"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "nutritionist_profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
