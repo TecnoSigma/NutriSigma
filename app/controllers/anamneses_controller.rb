@@ -1,6 +1,6 @@
 class AnamnesesController < ApplicationController
   before_action :check_anamnesis, only: [:new, :create]
-  before_action :load_patient, only: [:edit ,:update]
+  before_action :load_patient, only: [:edit ,:update,:destroy]
   def index
     @anamneses = Anamnesis.all
   end
@@ -14,7 +14,8 @@ class AnamnesesController < ApplicationController
   end
 
   def create
-    @anamnesis = Anamnesis.new(anamnesis_params)
+    @patient.anamnesis = Anamnesis.new(anamnesis_params)
+    all_food_items_check
     save_anamnesis
   end
 
@@ -23,28 +24,38 @@ class AnamnesesController < ApplicationController
   end
 
   def update
-    @anamnesis = Anamnesis.find(params[:id])
+    @patient.anamnesis = Anamnesis.find(params[:id])
+    all_food_items_check
     update_anamnesis
   end
 
   def destroy
-    @anamnesis = Anamnesis.find(params[:id]).destroy
-    redirect_to anamneses_path
+    @patient.anamnesis = Anamnesis.find(params[:id]).destroy
+    redirect_to @patient
   end
 private
+  include AnamnesisFoodItemsMethods
   def anamnesis_params
-    params.require(:anamnesis).permit(:medical_register_id, :morning_meal_time, :noon_meal_time, :evening_meal_time, :patient_id)
+    params.require(:anamnesis).permit(:medical_register_id, 
+      :morning_meal_time, 
+      :noon_meal_time, 
+      :evening_meal_time, 
+      :patient_id)
   end
+
   def save_anamnesis
-    if @anamnesis.save
-      redirect_to @anamnesis.patient
+    if @patient.anamnesis.save
+      all_food_items_save
+      redirect_to patient_path(@patient.id)
     else
       render "new"
     end
   end
   def update_anamnesis
-    if @anamnesis.update(anamnesis_params)
-      redirect_to @anamnesis.patient
+    if @patient.anamnesis.update(anamnesis_params)
+      @patient.anamnesis.anamnesis_food_items.destroy_all
+      all_food_items_save
+      redirect_to patient_path(@patient.id)
     else
       render "edit"
     end
@@ -52,7 +63,7 @@ private
   def check_anamnesis
     load_patient
     unless @patient.anamnesis.nil?
-      redirect_to edit_patient_anamnese_path(@patient.anamnesis.id,@patient.id)
+      redirect_to edit_patient_anamnese_path(@patient.id,@patient.anamnesis.id)
     end
   end
   def load_patient
