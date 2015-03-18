@@ -39,4 +39,9 @@ class NutritionalInformation
     (tee * 0.60).round(2)
   end
 
+  #
+  def self.lip(tee)
+    (tee * 0.25).round(2)
+  end
+
 end
