@@ -19,13 +19,13 @@ class Patient < ActiveRecord::Base
   def type_imc
     if imc > 45
       "Obesidade III (Mórbida)"
-    elsif imc > 40 || imc <= 45
+    elsif imc > 40 && imc <= 45
       "Obesidade II (Severa)"
-    elsif imc > 30 || imc <= 40
+    elsif imc > 30 && imc <= 40
       "Obesidade I"
-    elsif imc > 25 || imc <= 30
+    elsif imc > 25 && imc <= 30
       "Sobre Peso"
-    elsif imc > 18.5 || imc <= 25
+    elsif imc > 18.5 && imc <= 25
       "Peso Normal"
     elsif imc <= 18.5
       "Abaixo do Peso" 
