@@ -1,1 +1,17 @@
-teste
+<h1><strong>Tabela de Reeducação Alimentar</strong></h1>
+<h3>Dados do Paciente</h3>
+<p><strong>Data: </strong><%= @data %></p>
+<p><strong>Paciente: </strong><%= @patient.name %></p>
+<p><strong>Sexo: </strong><%= @patient.gender %></p>
+<p><strong>Idade: </strong><%= @patient.age %> anos</p>
+<hr>
+<p><strong>Gasto Energético Total (GET): </strong><%= @tee %> Kcal</p>
+
+<h3>Consumo Ideal Diário</h3>
+<p><strong>Proteínas (PTN): </strong><%= @ptn %> Kcal</p>
+<p><strong>Carboidratos (CHO): </strong><%= @cho %> Kcal</p>
+<p><strong>Lipídeos (LIP): </strong><%= @lip %> Kcal</p>
+<hr>
+<h3>Tabela Equivalente</h3>
+
+<%= @frutas =>
