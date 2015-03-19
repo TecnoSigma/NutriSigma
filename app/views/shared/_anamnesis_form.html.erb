@@ -1,0 +1,50 @@
+<%= javascript_include_tag "new_anamnesis_form.js.erb" %>
+
+<%= form_for [@patient, @anamnesis] do |a| %>
+  <div>
+    <%= a.label :numero_do_prontuario %>
+    <%= a.text_field :medical_register_id %>
+  </div>
+  <div>
+    <%= a.label :physical_activity,"Atividade Fisica" %>
+    <%= a.select :physical_activity,options_for_select([["Sedentário (pouco ou nenhum exercício)",Anamnesis::SEDENTARY], 
+    ["Levemente ativo (exercício leve 1 a 3 dias por semana)",Anamnesis::LOWLY_ACTIVE], 
+    ["Moderadamente ativo (exercício moderado, faz esportes 3 a 5 dias por semana)",Anamnesis::ACTIVE], 
+    ["Altamente ativo (exercício pesado de 5 a 6 dias por semana)",Anamnesis::HIGHLY_ACTIVE], 
+    ["Extremamente ativo (exercício pesado diariamente e até 2 vezes por dia)",Anamnesis::EXTREMELY_ACTIVE]]) %>
+  </div>
+  <div>
+    <%= a.label :horario_manha %>
+    <%= a.time_field :morning_meal_time %>
+  </div>
+  <div><%= label_tag :morning_meal_food,"Alimentaçao manha:"%>
+  <button onclick="addFoodItemField('originalItemField1', 'foodItemField1');return false;">Adcionar campo</button>
+  <div id="originalItemField1">
+    <%= select_tag "morning_food_item[]", options_from_collection_for_select(EquivalentFood.all, :id, :food) %>Quantidade:
+    <%= text_field_tag "morning_food_item_quantity[]", 1 %></div>
+  <div id="foodItemField1"></div>
+  </div>
+  <div>
+    <%= a.label :horario_tarde %>
+    <%= a.time_field :noon_meal_time %>
+  </div>
+  <div><%= label_tag :noon_meal_food,"Alimentaçao tarde:"%>
+  <button onclick="addFoodItemField('originalItemField2', 'foodItemField2');return false;">Adcionar campo</button>
+  <div id="originalItemField2">
+    <%= select_tag "noon_food_item[]", options_from_collection_for_select(EquivalentFood.all, :id, :food) %>Quantidade:
+    <%= text_field_tag "noon_food_item_quantity[]", 1 %></div>
+  <div id="foodItemField2"></div>
+  <div>
+    <%= a.label :horario_noite %>
+    <%= a.time_field :evening_meal_time %>
+  </div>
+  <div><%= label_tag :evening_meal_food,"Alimentaçao noite:"%>
+  <button onclick="addFoodItemField('originalItemField3', 'foodItemField3');return false;">Adcionar campo</button>
+  <div id="originalItemField3">
+    <%= select_tag "evening_food_item[]", options_from_collection_for_select(EquivalentFood.all, :id, :food) %>Quantidade:
+    <%= text_field_tag "evening_food_item_quantity[]", 1 %></div>
+  <div id="foodItemField3"></div>
+  <div>
+    <%= a.submit %>
+  </div>
+<% end %>

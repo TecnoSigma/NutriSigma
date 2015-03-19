@@ -1,0 +1,5 @@
+function addFoodItemField(originalFieldName, newFieldName) {
+  var divContent = document.getElementById(originalFieldName)
+  var divContentClone = divContent.cloneNode(true)
+  document.getElementById(newFieldName).appendChild(divContentClone)
+}

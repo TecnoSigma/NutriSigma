@@ -2,4 +2,6 @@
 
 <%= render partial: "shared/patient_display", locals: {patient: @patient} %>
 
+<%= render partial: "shared/anamnesis_display", locals: {anamnesis: @patient.anamnesis} %>
+
 <%=link_to "Lista de pacientes", patients_path %>
