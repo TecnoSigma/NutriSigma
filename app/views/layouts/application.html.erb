@@ -13,8 +13,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<%= yield %>
-
+  <br>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="rows">
+          <div class="col-md-8">
+            <br>
+            <div class="logotipo"><%= link_to "NutriSigma", root_path %></div>
+            <br>
+          </div>
+          <div class="col-md-4">
+            <br>
+            <div class="acesso_menu"><%= link_to "Login", new_nutritionist_session_path %></div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </div>
 </body>
 </html>
