@@ -71,7 +71,11 @@ RSpec.describe Patient, :type => :model do
         expect(subject.imc).to be_between(40, 45)
         expect(subject.type_imc).to eq ("Obesidade II (Severa)")
       end
-
+      it "has Peso Normal" do
+        subject.weight = 70
+        expect(subject.imc).to be_between(18.5, 25)
+        expect(subject.type_imc).to eq ("Peso Normal")
+      end
     end
 
   end

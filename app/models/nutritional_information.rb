@@ -45,17 +45,15 @@ class NutritionalInformation
   end
 
   def self.demand_portion(group_name, kcal_patient)
-    groups = FoodGroup.all
-    gr = groups.select{ |g| g.group == group_name}
-    portion = (generate_portion(gr["carbohydrate"],0.60) + generate_portion(gr["protein"],0.15) + generate_portion(gr["lipids"],0.25))/3
+    groups = FoodGroup.all.select{ |g| g.group == group_name}
+    @gr = groups[0]
+    @kcal_patient = kcal_patient
+    generate_portion(@gr["kilocalories"])
   end
 
   private
-  def self.generate_portion(field_number, percent) 
-    portion = 0
-    while (portion + 1) * field_number < kcal_patient * percent
-      portion += 1
-    end
+  def self.generate_portion(field_number) 
+    portion = (@kcal_patient / field_number).round(2)
   end
 
 end
