@@ -8,9 +8,7 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
-    if @patient.anamnesis.nil?
-      redirect_to new_patient_anamnese_path(patient_id: @patient.id)
-    else
+    if @patient.anamnesis
       @anamnesis = @patient.anamnesis
       food_items_display
     end

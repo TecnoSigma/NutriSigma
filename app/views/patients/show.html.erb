@@ -2,6 +2,13 @@
 
 <%= render @patient %>
 
-<%= render partial: "shared/anamnesis_display", locals: {anamnesis: @patient.anamnesis} %>
-
-<%=link_to "Lista de pacientes", patients_path %>
+<% if @patient.anamnesis %>
+  <%= render @patient.anamnesis  %>
+<% else %>
+  <div class="panel panel-warning">
+    <div class="panel-heading"><strong>Atenção</strong></div>
+    <div class="panel-body">
+      <p>Este paciente ainda não possui anamnese cadastrada. Deseja cadastrar agora? <%= link_to "Sim", new_patient_anamnese_path(patient_id: @patient.id) %> </p>
+    </div>
+  </div>
+<% end %>
