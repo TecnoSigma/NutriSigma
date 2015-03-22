@@ -1,23 +1,35 @@
-<%= form_for @nutriProfile do |p| %>
-  <div>
+<%= form_for @nutri_profile do |p| %>
+  <div class="form-group">
+    <%= p.label :nome %>
+    <br>
     <%= p.text_field :name %>
   </div>
-  <div>
+  <div class="form-group">
+    <%= p.label :email %>
+    <br>
     <%= p.text_field :email %>
   </div>
-  <div>
+  <div class="form-group">
+    <%= p.label "Órgão expedidor" %>
+    <br>
     <%= p.select :issuing_institution, options_for_select([["CRN-1", "CRN-1"],["CRN-2", "CRN-2"],["CRN-3", "CRN-3"],["CRN-4", "CRN-4"],["CRN-5", "CRN-5"],["CRN-6", "CRN-6"],["CRN-7", "CRN-7"],["CRN-8", "CRN-8"],["CRN-9", "CRN-9"],["CRN-10", "CRN-10"]]) %>
   </div>
-  <div>
+  <div class="form-group">
+    <%= p.label "Número do CRN" %>
+    <br>
     <%= p.text_field :crn_number %>
   </div>
-  <div>
+  <div class="form-group">
+    <%= p.label "Data de Expiração" %>
+    <br>
     <%= p.text_field :crn_expiration %>
   </div>
-  <div>
-    <%= p.text_field :license_type, options_for_select([["Definitiva", "Definitiva"],["Provisória", "Provisória"]]) %>
+  <div class="form-group">
+    <%= p.label "Tipo de Licença" %>
+    <br>
+    <%= p.select :license_type, options_for_select([["Definitiva", "Definitiva"],["Provisoria", "Provisoria"]]) %>
   </div>
-  <div>
-    <%= p.submit %>
+  <div class="form-group">
+    <%= p.submit "Salvar dados" %>
   </div>
 <% end %>
