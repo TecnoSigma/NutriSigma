@@ -12,17 +12,25 @@
     <div class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
-          <div class="rows">
-            <div class="col-md-4 col-sm-4">
-              <br>
-              <%= link_to image_tag("logotipo-thumb.png"), root_path, class: "img-responsive img-logotipo-thumb" %>
-              <br>
-            </div>
-            <div class="col-md-8 col-sm-8">
-              <br>
-              <div class="acesso_menu"><%= link_to "Acessar", admin_panel_index_path %></div>
-              <br>
-            </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<%= root_path  %>">NutriSigma</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <% if nutritionist_signed_in? %>
+                <li><%= link_to "Meus Pacientes", patients_path %></li>
+                <li><%= link_to "Sair", destroy_nutritionist_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Entrar", new_nutritionist_session_path %></li>
+                <li><%= link_to "Cadastrar", new_nutritionist_registration_path %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </nav>
