@@ -1,5 +1,5 @@
 class AdminPanelController < ApplicationController
-  before_action :authenticate_nutritionist!
+  #before_action :authenticate_nutritionist!
   def index
     
   end
