@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :nutritionist_profiles
   resources :nutritional_informations, only: [:show]
+  resources :admin_panel, only: [:index]
 
 
   root 'home#index'
