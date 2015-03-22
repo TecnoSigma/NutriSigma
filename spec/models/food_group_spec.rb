@@ -55,4 +55,11 @@ RSpec.describe FoodGroup, :type => :model do
     end
 
   end
+
+  describe "generate portions" do
+    it "successfully" do
+      f = FoodGroup.new(food_group)
+      expect(f.generate_portion(75)).to eq 1.00
+    end
+  end
 end
