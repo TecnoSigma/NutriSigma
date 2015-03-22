@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe NutritionalInformation, :type => :model do
-  let(:valid_anamnesis) { Anamnesis.new(medical_register_id: 00000000, morning_meal_time: Time.new, noon_meal_time: (Time.new + 1.hour), evening_meal_time: (Time.new + 6.hour),physical_activity:1.12)}
+  let(:valid_anamnesis) { Anamnesis.new(medical_register_id: 00000000,
+                                        morning_meal_time: Time.new,
+                                        noon_meal_time: (Time.new + 1.hour),
+                                        evening_meal_time: (Time.new + 6.hour),
+                                        physical_activity:1.12)}
+
   let(:valid_patient) {{name:"paciente",
                         email:"paciente@patient.com",
                         gender:"Masculino",
@@ -10,9 +15,13 @@ RSpec.describe NutritionalInformation, :type => :model do
                         weight: 80,
                         anamnesis: valid_anamnesis}}
 
-
   before do
     @kcal = 1026
+    FoodGroup.create!({group: "Frutas",
+                      carbohydrate: 16,
+                      proteins: 0.5,
+                      lipids: 0.6,
+                      kilocalories: 75.0})
   end
 
   subject{ NutritionalInformation.new(patient: Patient.new(valid_patient)) }
@@ -41,4 +50,7 @@ RSpec.describe NutritionalInformation, :type => :model do
     expect(subject.lip(@kcal)).to eq (433.33)
   end
 
+  it "get food group portion" do
+    expect(subject.demand_portions(@kcal).size).to eq 1
+  end
 end

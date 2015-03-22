@@ -5,4 +5,8 @@ class FoodGroup < ActiveRecord::Base
   validates_numericality_of :lipids, only_float: true
   validates_numericality_of :kilocalories, only_float: true
   has_many :equivalent_foods
+
+  def generate_portion(kcal_patient)
+    portion = (kcal_patient / kilocalories).round(2)
+  end
 end

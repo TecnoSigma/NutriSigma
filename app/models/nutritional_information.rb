@@ -39,15 +39,10 @@ class NutritionalInformation
     groups = FoodGroup.all
     all_potions = {}
     groups.each do |group|
-      portion = generate_portion(group["kilocalories"], kcal_patient)
+      portion = group.generate_portion(kcal_patient)
       all_potions[group.group] = portion
     end
     all_potions
-  end
-
-  private
-  def generate_portion(field_number, kcal_patient)
-    portion = (kcal_patient / field_number).round(2)
   end
 
 end
