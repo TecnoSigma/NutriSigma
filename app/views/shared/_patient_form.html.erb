@@ -1,6 +1,6 @@
 <%= form_for @patient do |p| %>
   <div class="form-group">
-    <%= p.label :id_do_paciente %>
+    <%= p.label :id_do_paciente, "Código do Paciente" %>
     <%= p.text_field :patient_id, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -20,7 +20,7 @@
     <%= p.text_field :age, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= p.label :altura_em_metros, class: "form-control" %>
+    <%= p.label :altura_em_metros%>
     <%= p.text_field :height, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -28,6 +28,6 @@
     <%= p.text_field :weight, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= p.submit %>
+    <%= p.submit "Cadastrar Paciente", class: "btn btn-default" %>
   </div>
 <% end %>
