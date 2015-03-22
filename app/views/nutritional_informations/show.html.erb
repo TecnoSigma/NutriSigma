@@ -13,16 +13,8 @@
 <p><strong>Lipídeos (LIP): </strong><%= @lip %> Kcal</p>
 <hr>
 <h3>Tabela Equivalente</h3>
-<li>Vegetais A <%= @vegetais_a %></li>
-<li>Vegetais B <%= @vegetais_b %></li>
-<li>Frutas <%= @frutas %></li>
-<li>Arroz <%= @arroz %></li>
-<li>Carnes <%= @carnes %></li>
-<li>Leites e Derivados <%= @leites_e_derivados %></li>
-<li>Desnatado e Soja <%= @desnatado_e_soja %></li>
-<li>Gorduras <%= @gorduras %></li>
-<li>Embutidos <%= @embutidos %></li>
-<li>Feijoes <%= @feijoes %></li>
-<li>Paes <%= @paes %></li>
-<li>Fibras <%= @fibras %></li>
-<li>Açucar <%= @acucar %></li>
+<ul>
+  <% @portions.each_pair do |group, value| %>
+    <li><%= "#{group}: #{value}" %></li>
+  <% end %>
+</ul>
