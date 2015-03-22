@@ -3,10 +3,25 @@ html, body
   font-family: verdana;
 }
 
-.logotipo
+#title
+{
+  text-align: center;
+  font-size: 24px;
+  color: #ccc;
+}
+
+.img-logotipo
+{
+padding-top: 10px;
+  width: 40%;
+  height: 40%;
+  opacity: 0.4;
+}
+
+.text-logotipo
 {
   font-family: verdana;
-  font-size: 24px;
+  font-size:18px;
   font-weight: normal;
   color: #2349c4;
 }

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>NutriSigma</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <br>
-  <div class="container">
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="rows">
-          <div class="col-md-8">
-            <br>
-            <div class="logotipo"><%= link_to "NutriSigma", root_path %></div>
-            <br>
-          </div>
-          <div class="col-md-4">
-            <br>
-            <div class="acesso_menu"><%= link_to "Login", new_nutritionist_session_path %></div>
-            <br>
+<html lang="pt-BR">
+  <head>
+    <title>NutriSigma</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="rows">
+            <div class="col-md-4 col-sm-4">
+              <br>
+              <%= link_to image_tag("logotipo-thumb.png"), root_path, class: "img-responsive img-logotipo-thumb" %>
+              <br>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <br>
+              <div class="acesso_menu"><%= link_to "Login", new_nutritionist_session_path %></div>
+              <br>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <%= yield %>
-  </div>
-</body>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
 </html>
