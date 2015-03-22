@@ -34,7 +34,7 @@ class NutritionistProfilesController < ApplicationController
   end
 
   def nutriprofile_params
-    params.require(:nutri_profile).permit(:name, :email, :issuing_institution, :crn_number, :crn_expiration, :license_type)
+    params.require(:nutritionist_profile).permit(:name, :email, :issuing_institution, :crn_number, :crn_expiration, :license_type)
   end
 
   def save_nutriprofile

@@ -1,14 +1,20 @@
 class PatientsController < ApplicationController
+
+  before_action :authenticate_nutritionist!
+
   def index
-    @patients = Patient.all
+    @patients = current_nutritionist.patients
   end
 
   def show
     @patient = Patient.find(params[:id])
-    @anamnesis = @patient.anamnesis
-    food_items_display
+    if @patient.anamnesis.nil?
+      redirect_to new_patient_anamnese_path(patient_id: @patient.id)
+    else
+      @anamnesis = @patient.anamnesis
+      food_items_display
+    end
 
-    
     #CÁLCULOS
     #========
 
@@ -55,6 +61,7 @@ private
     params.require(:patient).permit(:patient_id, :name, :email, :gender, :age, :height, :weight )
   end
   def save_patient
+    @patient.nutritionist = current_nutritionist
     if @patient.save
       redirect_to @patient
     else
