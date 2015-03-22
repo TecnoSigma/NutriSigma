@@ -1,6 +1,6 @@
 <h2>Dados do paciente</h2>
 
-<%= render partial: "shared/patient_display", locals: {patient: @patient} %>
+<%= render @patient %>
 
 <%= render partial: "shared/anamnesis_display", locals: {anamnesis: @patient.anamnesis} %>
 
