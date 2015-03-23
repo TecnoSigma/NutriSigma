@@ -17,6 +17,8 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
                                                          crn_expiration: "2018-11-05",
                                                          license_type: "Definitiva")
     end
+    nutritionist = Nutritionist.create!(email: "teste@teste.com", password: 12345678)
+    sign_in nutritionist
   end
 
   describe "GET action" do
@@ -27,7 +29,7 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
                                                          crn_number: "0999",
                                                          crn_expiration: "2018-11-05",
                                                          license_type: "Definitiva")
-      end
+    end
     it "validate #index" do
       get :index
       expect(response).to have_http_status(:success)
