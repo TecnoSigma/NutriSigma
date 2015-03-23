@@ -30,7 +30,9 @@
                     <li><%= link_to "Meus Pacientes", patients_path %></li>
                     <li><%= link_to "Novo Paciente", new_patient_path %></li>
                   </ul>
-                </li>
+                <% if current_nutritionist.has_profile? %>
+                  <li><%= link_to "Meu Perfil", current_nutritionist.nutritionist_profile%></li>
+                <% end %>
                 <li><%= link_to "Sair", destroy_nutritionist_session_path, method: :delete %></li>
               <% else %>
                 <li><%= link_to "Entrar", new_nutritionist_session_path %></li>
@@ -40,7 +42,17 @@
           </div>
         </div>
       </nav>
-      <%= yield %>
-    </div>
-  </body>
+      <% if nutritionist_signed_in? && current_nutritionist.has_profile? == false %>
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">Aviso</h3>
+          </div>
+          <div class="panel-body">
+            Você ainda não configurou seu perfil. Deseja configurá-lo agora? <%= link_to "Sim", new_nutritionist_profile_path %>
+        </div>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
 </html>

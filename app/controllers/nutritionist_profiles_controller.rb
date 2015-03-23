@@ -1,7 +1,6 @@
 class NutritionistProfilesController < ApplicationController
   before_action :set_nutri_profile, only: [:edit, :update, :show, :destroy]
-  def index
-  end
+  before_action :authenticate_nutritionist!
 
   def edit
   end
@@ -38,6 +37,7 @@ class NutritionistProfilesController < ApplicationController
   end
 
   def save_nutriprofile
+    @nutri_profile.nutritionist = current_nutritionist
     if @nutri_profile.save
       redirect_to @nutri_profile
     else

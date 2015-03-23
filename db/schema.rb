@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322034408) do
+ActiveRecord::Schema.define(version: 20150323022727) do
 
   create_table "anamneses", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -85,7 +85,10 @@ ActiveRecord::Schema.define(version: 20150322034408) do
     t.string   "license_type"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "nutritionist_id"
   end
+
+  add_index "nutritionist_profiles", ["nutritionist_id"], name: "index_nutritionist_profiles_on_nutritionist_id"
 
   create_table "nutritionists", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
