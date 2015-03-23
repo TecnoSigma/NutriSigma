@@ -63,11 +63,11 @@ RSpec.describe NutritionistProfilesController, :type => :controller do
 
   describe "POST action" do
     it "validate #create" do
-      post :create, nutri_profile: profile
+      post :create, nutritionist_profile: profile
       expect(NutritionistProfile.last.name).to eq("Maria da Silva")
     end
     it "#update" do
-      post :update, id:NutritionistProfile.last.id ,nutri_profile:{name:"Jose da Silva"}
+      post :update, id:NutritionistProfile.last.id ,nutritionist_profile:{name:"Jose da Silva"}
       expect(NutritionistProfile.last.name).to eq("Jose da Silva")
     end
 

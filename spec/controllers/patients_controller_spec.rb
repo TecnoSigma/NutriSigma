@@ -6,13 +6,13 @@ RSpec.describe PatientsController, :type => :controller do
     10.times do
       @a_patient = Patient.create(patient_id: 00000000, name:"paciente", email:"paciente@patient.com", gender:"Masculino", age:30, height: 3.42, weight: 80 )
     end
+    nutritionist = Nutritionist.create!(email: "teste@teste.com", password: 12345678)
+    sign_in nutritionist
   end
   describe "GET action" do
     it "#index" do
       get :index
       expect(response).to have_http_status(:success)
-    end
-    it "#show" do
     end
     it "#new" do
       new_patient = Patient.new
