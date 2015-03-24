@@ -5,23 +5,23 @@
   <div class="panel-body">
     <div class="container">
       <div class="col-md-12">
-        <strong>Numero do Prontuario:</strong> <%= anamnesis.medical_register_id %><br>
-        <strong>Atividade Fisica:</strong>%= anamnesis.physical_activity %><br>
-        <strong>Horario manha: </strong><%=anamnesis.morning_meal_time.to_s(:time) %><br>
+        <strong>Número do Prontuário:</strong> <%= anamnesis.medical_register_id %><br>
+        <strong>Atividade Física:</strong>%= anamnesis.physical_activity %><br>
+        <strong>Horário manhã: </strong><%=anamnesis.morning_meal_time.to_s(:time) %><br>
         <% anamnesis.anamnesis_food_items.where("meal_time == ?",'manha').each do |food_item|%>
           <%= food_item.quantity %> <%= food_item.equivalent_food.food %><br>
         <% end %>
-        <strong>Total Carboidratos:</strong><%= @morning_food_carbohydrates %> Proteinas: <%= @morning_food_proteins %> Lipidios:  <%= @morning_food_lipids %> Kilocalorias: <%= @morning_food_kilocalories %><br>
-        <strong>Horario Tarde:</strong> <%=anamnesis.noon_meal_time.to_s(:time) %><br>
+        <strong>Total Carboidratos:</strong><%= @morning_food_carbohydrates %> Proteínas: <%= @morning_food_proteins %> Lipidios:  <%= @morning_food_lipids %> Kilocalorias: <%= @morning_food_kilocalories %><br>
+        <strong>Horário Tarde:</strong> <%=anamnesis.noon_meal_time.to_s(:time) %><br>
         <% anamnesis.anamnesis_food_items.where("meal_time == ?",'tarde').each do |food_item|%>
           <%= food_item.quantity %> <%= food_item.equivalent_food.food %><br>
         <% end %>
-        <strong>Total Carboidratos:</strong><%= @noon_food_carbohydrates %> Proteinas: <%= @noon_food_proteins %> Lipidios:  <%= @noon_food_lipids %> Kilocalorias: <%= @noon_food_kilocalories %><br>
-        <strong>Horario Noite:</strong> <%=anamnesis.evening_meal_time.to_s(:time) %><br>
+        <strong>Total Carboidratos:</strong><%= @noon_food_carbohydrates %> Proteínas: <%= @noon_food_proteins %> Lipídios:  <%= @noon_food_lipids %> Kilocalorias: <%= @noon_food_kilocalories %><br>
+        <strong>Horário Noite:</strong> <%=anamnesis.evening_meal_time.to_s(:time) %><br>
         <% anamnesis.anamnesis_food_items.where("meal_time == ?",'noite').each do |food_item|%>
           <%= food_item.quantity %> <%= food_item.equivalent_food.food %><br>
         <% end %>
-        <strong>Total Carboidratos:</strong><%= @noon_food_carbohydrates %> Proteinas: <%= @noon_food_proteins %> Lipidios:  <%= @noon_food_lipids %> Kilocalorias: <%= @noon_food_kilocalories %><br>
+        <strong>Total Carboidratos:</strong><%= @noon_food_carbohydrates %> Proteínas: <%= @noon_food_proteins %> Lipídios:  <%= @noon_food_lipids %> Kilocalorias: <%= @noon_food_kilocalories %><br>
         <%=link_to "Editar", edit_patient_anamnese_path(@patient.id,anamnesis.id) %><br>
       </div>
     </div>
